@@ -1,5 +1,5 @@
-import { Deck } from './src/deck.js';
-import { Player } from './src/player.js';
+const { Deck } = require('./src/deck.js');
+const { Player } = require('./src/player.js');
 
 const deck = new Deck();
 const player1 = new Player('Player1');
