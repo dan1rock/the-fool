@@ -8,4 +8,4 @@ class Card{
 	}
 }
 
-export default { Card };
+export { Card };

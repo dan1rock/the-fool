@@ -1,4 +1,4 @@
-import card from './card.js';
+import { Card } from './card.js';
 
 class Deck{
 	constructor() {
@@ -14,10 +14,17 @@ class Deck{
 
 		for (let i = 0; i < suits.length; i++) {
 			for (let j = 0; j < ranks.length; j++){
-				this.cards.push(new card(suits[i], ranks[j], values[j]));
+				this.cards.push(new Card(suits[i], ranks[j], values[j]));
 			}
+		}
+	}
+
+	shuffleDeck() {
+		for (let i = this.cards.length - 1; i > 0; i--) {
+			const j = Math.floor(Math.random() * (i + 1));
+			[this.cards[i], this.cards[j]] = [this.cards[j], this.cards[i]];
 		}
 	}
 }
 
-export default { Deck };
+export { Deck };
