@@ -33,6 +33,28 @@ class Deck {
       player.cards.push(...this.cards.splice(0, 1));
     }
   }
+
+  defineTrump() {
+    if (this.cards.length > 0) {
+      this.trump = this.cards[this.cards.length - 1];
+    }
+  }
+
+  defineFirstTurn(players) {
+    let minValue = 15;
+    let firstTurn;
+
+    for (const p of players) {
+      for (const c of p.cards) {
+        if (c.value < minValue && c.suit === this.trump.suit) {
+          minValue = c.value;
+          firstTurn = p.name;
+        }
+      }
+    }
+
+    return firstTurn;
+  }
 }
 
 module.exports = { Deck };
