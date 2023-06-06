@@ -53,7 +53,15 @@ class Deck {
       }
     }
 
+    if (minValue === 15) return players[0].name;
+
     return firstTurn;
+  }
+
+  clearDeck() {
+    this.cards = [];
+    this.discardedCards = [];
+    this.trump = null;
   }
 }
 

@@ -53,3 +53,15 @@ test('First turn defined properly', () => {
 
   expect(deck.defineFirstTurn([player1, player2])).toBe('Player1');
 });
+
+test('Deck is creared properly', () => {
+  const deck = new Deck();
+
+  deck.generateDeck();
+  deck.shuffleDeck();
+  deck.clearDeck();
+
+  expect(deck.cards.length).toBe(0);
+  expect(deck.discardedCards.length).toBe(0);
+  expect(deck.trump).toBe(null);
+});
