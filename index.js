@@ -1,3 +1,5 @@
+'use strict';
+
 const { Deck } = require('./src/deck.js');
 const { Player } = require('./src/player.js');
 
