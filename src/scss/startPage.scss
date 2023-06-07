@@ -1,0 +1,29 @@
+@import "colors";
+@import "prefabs";
+
+.startPage {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: $whiteColor;
+
+  &__title {
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 100px;
+    line-height: 4rem;
+  }
+
+  &__newGameButton {
+    @extend %newGameButton;
+  }
+}

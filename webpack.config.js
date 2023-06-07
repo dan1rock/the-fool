@@ -4,6 +4,7 @@ const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   context: path.resolve(__dirname, 'src'),
@@ -42,11 +43,22 @@ module.exports = {
           to: path.resolve(__dirname, 'build')
         },
       ],
-    })
+    }),
+    new MiniCssExtractPlugin({
+      filename: 'bundle.css'
+    }),
   ],
 
   module: {
     rules: [
+      {
+        test: /\.s[ac]ss$/i,
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          'sass-loader',
+        ],
+      },
       {
         test: /\.js$/,
         exclude: /node_modules/,
