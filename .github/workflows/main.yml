@@ -5,7 +5,7 @@ name: Node.js CI
 
 on:
   push:
-    branches: [ unapproved ]
+    branches: [ unapproved, main ]
   pull_request:
     branches: [ main ]
 
