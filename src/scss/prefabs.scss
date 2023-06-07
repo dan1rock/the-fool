@@ -1,0 +1,26 @@
+@import "colors";
+
+%button {
+  width: 150px;
+  height: 50px;
+  background: $actionDefaultColor;
+  color: $whiteColor;
+  border-radius: 50px;
+  font-weight: bold;
+  outline: none;
+  border: none;
+  transition: .3s;
+  cursor: pointer;
+}
+
+%newGameButton {
+  @extend %button;
+  font-size: 1.3rem;
+  width: 200px;
+  height: 80px;
+  z-index: 4;
+
+  &:hover {
+    background-color: $startBtnHoverColor;
+  }
+}
