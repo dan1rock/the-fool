@@ -10,6 +10,8 @@ class Deck extends Card {
     this.trump = null;
 
     this.$deck = null;
+    this.$opponentHand = null;
+    this.$playerHand = null;
   }
 
   generateDeck() {
@@ -34,6 +36,12 @@ class Deck extends Card {
   dealCards(player) {
     for (let i = player.cards.length; i < 6; i++) {
       player.cards.push(...this.cards.splice(0, 1));
+
+      if (player.name === 'Player1') {
+        this.$playerHand.appendChild(this.$deck.childNodes[0]);
+      } else {
+        this.$opponentHand.appendChild(this.$deck.childNodes[0]);
+      }
     }
   }
 
@@ -62,7 +70,9 @@ class Deck extends Card {
   }
 
   renderDeck() {
-    document.querySelector('.deck');
+    this.$deck = document.querySelector('.deck');
+    this.$opponentHand = document.querySelector('.opponentHand');
+    this.$playerHand = document.querySelector('.playerHand');
 
     let indent = 0;
 
