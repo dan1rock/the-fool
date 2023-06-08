@@ -9,7 +9,7 @@ class Deck extends Card {
     this.discardedCards = [];
     this.trump = null;
 
-    this.$deck = document.querySelector('.deck');
+    this.$deck = null;
   }
 
   generateDeck() {
@@ -62,6 +62,8 @@ class Deck extends Card {
   }
 
   renderDeck() {
+    document.querySelector('.deck');
+
     let indent = 0;
 
     this.cards.forEach((c, i, d) => {
