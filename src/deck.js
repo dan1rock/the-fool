@@ -37,10 +37,12 @@ class Deck extends Card {
     for (let i = player.cards.length; i < 6; i++) {
       player.cards.push(...this.cards.splice(0, 1));
 
-      if (player.name === 'Player1') {
-        this.$playerHand.appendChild(this.$deck.childNodes[0]);
-      } else {
-        this.$opponentHand.appendChild(this.$deck.childNodes[0]);
+      if (this.$deck.childNodes.length > 0) {
+        if (player.name === 'Player1') {
+          this.$playerHand.appendChild(this.$deck.childNodes[0]);
+        } else {
+          this.$opponentHand.appendChild(this.$deck.childNodes[0]);
+        }
       }
     }
   }
