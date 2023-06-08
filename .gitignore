@@ -128,3 +128,5 @@ dist
 
 # JetBrains IDE settings
 .idea/
+
+.DS_Store

@@ -2,11 +2,16 @@
 
 const { Card } = require('./card.js');
 
-class Deck {
+class Deck extends Card {
   constructor() {
+    super();
     this.cards = [];
     this.discardedCards = [];
     this.trump = null;
+
+    this.$deck = null;
+    this.$opponentHand = null;
+    this.$playerHand = null;
   }
 
   generateDeck() {
@@ -31,6 +36,14 @@ class Deck {
   dealCards(player) {
     for (let i = player.cards.length; i < 6; i++) {
       player.cards.push(...this.cards.splice(0, 1));
+
+      if (this.$deck.childNodes.length > 0) {
+        if (player.name === 'Player1') {
+          this.$playerHand.appendChild(this.$deck.childNodes[0]);
+        } else {
+          this.$opponentHand.appendChild(this.$deck.childNodes[0]);
+        }
+      }
     }
   }
 
@@ -56,6 +69,28 @@ class Deck {
     if (minValue === 15) return players[0].name;
 
     return firstTurn;
+  }
+
+  renderDeck() {
+    this.$deck = document.querySelector('.deck');
+    this.$opponentHand = document.querySelector('.opponentHand');
+    this.$playerHand = document.querySelector('.playerHand');
+
+    let indent = 0;
+
+    this.cards.forEach((c, i, d) => {
+      const card = super.renderCard(c);
+
+      if (c === d[d.length - 1]) {
+        card.classList.add('card__trump');
+      } else {
+        card.style.right = `${indent}em`;
+        card.style.bottom = `${indent}em`;
+        indent += 0.02;
+      }
+
+      this.$deck.appendChild(card);
+    });
   }
 
   clearDeck() {
