@@ -12,9 +12,9 @@
   align-items: center;
   justify-items: center;
   grid-template-areas:
-      "trump pc pcName"
+      "trump opponent opponentName"
       "deck table discard"
-      "btn player playerName";
+      "button player playerName";
 
   .card {
     position: absolute;
@@ -175,7 +175,7 @@
   }
 
   .opponentHand {
-    grid-area: pc;
+    grid-area: opponent;
 
     .card__trump {
       background-color: $cardsShirtColor;
