@@ -2,11 +2,14 @@
 
 const { Card } = require('./card.js');
 
-class Deck {
+class Deck extends Card {
   constructor() {
+    super();
     this.cards = [];
     this.discardedCards = [];
     this.trump = null;
+
+    this.$deck = document.querySelector('.deck');
   }
 
   generateDeck() {
@@ -56,6 +59,24 @@ class Deck {
     if (minValue === 15) return players[0].name;
 
     return firstTurn;
+  }
+
+  renderDeck() {
+    let indent = 0;
+
+    this.cards.forEach((c, i, d) => {
+      const card = super.renderCard(c);
+
+      if (c === d[d.length - 1]) {
+        card.classList.add('card__trump');
+      } else {
+        card.style.right = `${indent}em`;
+        card.style.bottom = `${indent}em`;
+        indent += 0.02;
+      }
+
+      this.$deck.appendChild(card);
+    });
   }
 
   clearDeck() {

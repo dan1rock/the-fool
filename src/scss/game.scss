@@ -1,0 +1,140 @@
+@import "prefabs";
+
+&__body {
+  display: none;
+  width: 97%;
+  height: 95%;
+  border-radius: 50px;
+  background: linear-gradient($bodyColorField1, $bodyColorField2);
+  grid-template-columns: minmax(200px, 1fr) 2fr minmax(200px, 1fr);
+  grid-template-rows: repeat(3, auto);
+  gap: 20px;
+  align-items: center;
+  justify-items: center;
+  grid-template-areas:
+      "trump pc pcName"
+      "deck table discard"
+      "btn player playerName";
+
+  .card {
+    position: absolute;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 80px;
+    height: 120px;
+    padding: 5px;
+    margin: 5px;
+    background: $cardColor;
+    border: 2px solid $cardBorder;
+    border-radius: 10px;
+    z-index: 2;
+    opacity: 1;
+    transition: .3s;
+    font-family: sans-serif;
+
+    &__top {
+      display: flex;
+      flex-flow: column;
+      align-self: flex-start;
+      align-items: center;
+    }
+
+    &__bottom {
+      display: flex;
+      flex-flow: column;
+      align-self: flex-end;
+      align-items: center;
+      transform: rotate(180deg);
+    }
+
+    &.hidden {
+      opacity: 0;
+      transition: .3s;
+    }
+
+    &__rankSuit {
+      @extend %rankSuitSize;
+    }
+
+    .spades {
+      @extend %spades;
+    }
+
+    .clubs {
+      @extend %clubs;
+    }
+
+    .diamonds {
+      @extend %diamonds;
+    }
+
+    .hearts {
+      @extend %hearts;
+    }
+
+    &__suit {
+      @extend %suitSize;
+    }
+
+    &__shirt:not(.card__trump) {
+      background-color: $cardsShirtColor;
+      background-image: url("../svg/shirt.svg");
+      background-size: 90%;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    &__shirt:not(.card__trump) > * {
+      visibility: hidden;
+    }
+
+    &__shirt:not(.deck) > * {
+      visibility: hidden;
+    }
+  }
+
+  .deck {
+    grid-area: deck;
+    position: relative;
+    right: 25px;
+    width: 150px;
+    height: 150px;
+
+    .card__trump {
+      transform: rotate(90deg);
+      top: 10px;
+      right: -20px;
+      z-index: 1;
+
+      &.card__shirt:not(.deck) > * {
+        visibility: visible;
+      }
+    }
+  }
+
+  .mainTrump {
+    grid-area: trump;
+    display: flex;
+    width: 100px;
+    height: 100px;
+
+
+    &.clubs {
+      @extend %clubs;
+    }
+
+    &.diamonds {
+      @extend %diamonds;
+    }
+
+    &.spades {
+      @extend %spades;
+    }
+
+    &.hearts {
+      @extend %hearts;
+    }
+  }
+}
