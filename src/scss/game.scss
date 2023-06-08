@@ -204,6 +204,32 @@
     }
   }
 
+  .actionBtn {
+    grid-area: button;
+    position: relative;
+    left: 10px;
+    visibility: hidden;
+    @extend %button;
+    cursor: auto;
+
+    &.active {
+      visibility: visible;
+      transition: .3s;
+    }
+
+    &.grabState {
+      background: $actionBtnGrabCardColor;
+    }
+
+    &.discardState {
+      background: $actionBtnDiscardColor;
+    }
+
+    &.turnState {
+      background: $actionDefaultColor;
+    }
+  }
+
   .mainTrump {
     grid-area: trump;
     display: flex;
