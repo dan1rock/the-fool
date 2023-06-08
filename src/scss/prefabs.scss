@@ -1,36 +1,5 @@
 @import "colors";
 
-%clubs {
-  background: url("../svg/clubs.svg") no-repeat;
-  background-size: 100%;
-}
-
-%diamonds {
-  background: url("../svg/diamonds.svg") no-repeat;
-  background-size: 100%;
-}
-
-%spades {
-  background: url("../svg/spades.svg") no-repeat;
-  background-size: 100%;
-}
-
-%hearts {
-  background: url("../svg/hearts.svg") no-repeat;
-  background-size: 100%;
-}
-
-%suitSize {
-  width: 40px;
-  height: 40px;
-}
-
-%rankSuitSize {
-  margin-top: 2px;
-  width: 12px;
-  height: 12px;
-}
-
 %button {
   width: 150px;
   height: 50px;
@@ -52,6 +21,6 @@
   z-index: 4;
 
   &:hover {
-    background-color: $startButtonHoverColor;
+    background-color: $startBtnHoverColor;
   }
 }
