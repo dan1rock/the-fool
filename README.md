@@ -1,6 +1,6 @@
 # THE FOOL
 
-# Description
+## Description
 
 Objective:
 The objective of "Durak" is to avoid being the last player remaining with cards in hand. The game is typically played with a standard deck of 36 cards, but it can also be played with a full 52-card deck.
@@ -40,3 +40,28 @@ End of Round and Winning:
 <img src="https://raw.githubusercontent.com/dan1rock/the-fool/unapproved/screenshots/game1.png">
 <img src="https://raw.githubusercontent.com/dan1rock/the-fool/unapproved/screenshots/game2.png">
 <img src="https://raw.githubusercontent.com/dan1rock/the-fool/unapproved/screenshots/game3.png">
+
+## How to run browser fool?
+
+The project requires node.js to be installed on your machine. It was originally built on v19.7.0
+
+Install all dependancies:
+```bash
+$ npm install
+```
+
+To run local:
+```bash
+$ npm start
+```
+You are good to go! Just type in your browser's address line:
+```localhost:17000```
+
+And press Start Game button
+
+You can run tests to make sure everything is working:
+```bash
+$ npm test
+```
+ 
+If you have problems or test suites fail, you can contact me at any time, and I will reply as soon as I can
